@@ -5,7 +5,7 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const pedidoRoutes = require("./routes/pedidoRoutes");
-
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(cors());
@@ -25,9 +25,9 @@ app.post("/api/login", (req, res) => {
 
 // Solo inicia el servidor si se ejecuta directamente
 if (require.main === module) {
-    app.listen(3001, () => {
-        console.log("Servidor puerto 3001");
-    });
+   app.listen(PORT, () => {
+    console.log(`Servidor iniciado en el puerto ${PORT}`);
+});
 }
 
 // Exporta la aplicación para Jest y Supertest

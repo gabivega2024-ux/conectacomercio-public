@@ -2,16 +2,20 @@ const mysql = require("mysql2/promise");
 
 const conexion = mysql.createPool({
 
-    host: "localhost",
+    host: process.env.DB_HOST,
 
-    user: "root",
+    port: process.env.DB_PORT,
 
-    password: "",
+    user: process.env.DB_USER,
 
-    database: "conectacomercio_api"
+    password: process.env.DB_PASSWORD,
+
+    database: process.env.DB_NAME,
+
+    ssl: {
+        rejectUnauthorized: false
+    }
 
 });
-
-console.log("MySQL conectado");
 
 module.exports = conexion;
