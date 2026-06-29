@@ -1,11 +1,14 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const pedidoRoutes = require("./routes/pedidoRoutes");
+
 const PORT = process.env.PORT || 3001;
+
 const app = express();
 
 app.use(cors());
@@ -16,6 +19,14 @@ app.use("/api", userRoutes);
 app.use("/api/productos", productRoutes);
 app.use("/api/pedidos", pedidoRoutes);
 
+
+app.get("/", (req, res) => {
+  res.json({
+    mensaje: "API ConectaComercio funcionando",
+    estado: "OK"
+  });
+});
+
 // Ruta de prueba
 app.post("/api/login", (req, res) => {
     res.json({
@@ -25,9 +36,9 @@ app.post("/api/login", (req, res) => {
 
 // Solo inicia el servidor si se ejecuta directamente
 if (require.main === module) {
-   app.listen(PORT, () => {
-    console.log(`Servidor iniciado en el puerto ${PORT}`);
-});
+    app.listen(PORT, () => {
+        console.log(`Servidor iniciado en el puerto ${PORT}`);
+    });
 }
 
 // Exporta la aplicación para Jest y Supertest
