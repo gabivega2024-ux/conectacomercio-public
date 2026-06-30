@@ -3,8 +3,7 @@ import axios from "axios";
 
 // URL base de la API del backend
 const API =
-  "http://localhost:3001/api";
-
+  "https://conectacomercio-public.onrender.com/api";
 /**
  * Obtener todos los usuarios
  */

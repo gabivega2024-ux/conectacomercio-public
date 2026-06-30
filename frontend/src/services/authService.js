@@ -3,7 +3,7 @@ import axios from "axios";
 
 // URL base de la API del backend
 const API =
-"http://127.0.0.1:3001/api";
+"https://conectacomercio-public.onrender.com/api";
 
 
 /**

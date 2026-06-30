@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// URL base de la API del backend
 const API =
-"http://localhost:3001/api/pedidos";
+  "https://conectacomercio-public.onrender.com/api";
 
 export const crearPedido =
 (datos) =>
